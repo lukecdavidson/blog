@@ -1,3 +1,0 @@
-#!/bin/sh
-hugo
-scp -r -i ~/.ssh/root@box public/* root@box.lukedavidson.xyz:/home/user-data/www/default/
