@@ -28,7 +28,7 @@ url: "https://www.lukedavidson.org" # the base hostname & protocol for your site
 github_username: lukecdavidson
 
 # Build settings
-theme: minima
+theme: midnight
 plugins:
   - jekyll-feed
 
