@@ -27,6 +27,8 @@ url: "https://www.lukedavidson.org" # the base hostname & protocol for your site
   #twitter_username: jekyllrb
 github_username: lukecdavidson
 
+google_analytics: UA-181196393-1
+
 # Build settings
 theme: minima
 plugins:
