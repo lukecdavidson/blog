@@ -23,7 +23,7 @@ email: luke@lukedavidson.org
 description: >- # this means to ignore newlines until "baseurl:"
   Technical blog for what I find interesting.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.lukedavidson.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blog.lukedavidson.org" # the base hostname & protocol for your site, e.g. http://example.com
   #twitter_username: jekyllrb
 github_username: lukecdavidson
 
