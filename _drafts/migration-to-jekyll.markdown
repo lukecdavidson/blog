@@ -98,9 +98,10 @@ Keeping up with supported jekyll, bundle, and gem versions. No more server updat
 
 ## Publishing Process
 
-[]
+A new post will typically start as a draft. Draft posts are not published by GitHub Pages, so you can commit these to your published branch without exposing them early. These drafts live in the _drafts folder at the root of your site (the folder does not exist by default so you may need to `mkdir _drafts`). When working locally, these drafts are also not published unless the `--drafts` switch is provided to `jekyll serve`. The container image I built runs this by default. To additionally facilitate the writing process, the jekyll server switch for live-reloading the site is used.  
+Note `CMD ["bundle", "exec", "jekyll", "serve", "--host=0.0.0.0", "--livereload", "--drafts"]` in the Dockerfile.  
 
-Using drafts. `mkdir _drafts`. Drafts flag on `bundle exec jekyll serve`. Can also mention live reload. (Record a video of dual pane view of Marker). Show live reloading 
+(Can also mention how live reload works. Record a video of dual pane view of Marker. Show live reloading in action)
 
 Use jekyll compose and Marker. Mention the settings I like for Marker.
 
@@ -109,6 +110,24 @@ Use jekyll compose and Marker. Mention the settings I like for Marker.
 * Spell checking
 * Word wrap
 * GitHub css
+
+Using a local remote for drafts:
+You can create a branch for drafts. Howver, github pages won't publish drafts so even if you pushed to master (and github pages is building off of master) you won't have to worry about the article being up early.
+
+If you don't want your drafts public but want to work on them from multiple workstations, consider setting up a remote that is local to your network.
+
+I have a filesever that I use as a local git repository storage. I can utilize this to add a second remote to my repo, allowing pushing and pulling of drafts between my laptop and desktop.
+
+Basics of working with remotes can be found [here](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes).
+
+Adding the repo on the server:
+sudo -u git mkdir /srv/git/blog.git
+sudo -u git git init --bare /srv/git/blog.git
+
+Adding the remote on my workstations:
+git remote add drafts git@filesrv:/srv/git/blog.git
+
+
 
 ## Shortcuts
 
