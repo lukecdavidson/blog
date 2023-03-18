@@ -51,6 +51,20 @@ Talk about how I copied the text, dumped it into a file, downloaded the pictures
 
 # Building a Development Container
 
+https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
+
+https://pages.github.com/versions/
+has ruby 2.7.4 listed as a dep, so i put that in the dockerfile
+`FROM ruby:2.7.4`
+You can use this to build your site to start. Then move to the development container
+https://rubygems.org/gems/github-pages
+This has the plugins that are a dependency of github-pages gem. Things like jekyll-gist, jekyll-feed and minima are in there so we can edit the default jekyll gemfile and remove them.
+
+Versions used by github pages. Useful for setting the dependcy version in the container. Can go through setting versions for specific gems in the Gemfile.
+https://pages.github.com/versions/
+https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll#installing-jekyll
+https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll
+
 ```
 podman build -t blog-dev .
 podman create --name blog-dev -v .:/app:Z -p 4000:4000 blog-dev
