@@ -2,7 +2,7 @@
 layout: post
 title:  "Use FreeIPA Certificate for oVirt Engine"
 date:   2022-06-30 12:00:00 -0800
-categories: freeipa, ovirt
+categories: freeipa ovirt
 ---
 Red Hat provides documentation for replacing the certificate used by the oVirt Engine web interface here.
 
@@ -25,7 +25,7 @@ openssl req -newkey rsa:4096 -keyout apache.key -out apache.csr
 
 Before we can issue a certificate using the CSR data, we need to setup a principal in IPA.
 
-![FreeIPA oVirt HTTP Service](/asseets/freeipa-add-ovirt-http-service.png)
+![FreeIPA oVirt HTTP Service](/assets/images/freeipa-add-ovirt-http-service.png)
 
 Proceed to Identity -> Services -> Add Service. Fill in HTTP as the service and the FQDN of the oVirt Engine. Our engine VM isn’t joined to the realm so we will want to select the option to Skip host check and continue.
 

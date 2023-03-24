@@ -6,7 +6,7 @@ categories: pfsense
 ---
 If you’ve recently setup pfBlockerNG, you may have noticed new messages on some of the configuration pages. In example:
 
-![GeoIP: Don't block the world](/assets/pfsense-no-world-block.png)
+![GeoIP: Don't block the world](/assets/images/pfsense-no-world-block.png)
 
 I would wager that many who setup pfBlocker do exactly this, hence the notice. Again the two important principles here are:
 
@@ -30,13 +30,13 @@ Remember that we will be selectively permitting traffic and defaulting to blocki
 
 On the GeoIP configuration page, set the action for each permitted region to Alias Match and disable logging. Then, disable all remaining regions and save.
 
-![pfSense GeoIP Configuration Page](/assets/pfsense-geoip-config-page.png)
+![pfSense GeoIP Configuration Page](/assets/images/pfsense-geoip-config-page.png)
 
 I elected to disable these logs as it would generate a large amount and ultimately be useless. Consider that simply going to google.com will trigger this rule to log.
 
 To drill down specific countries to permit, use the edit icon for the region. In the edit pane, select the countries to permit. Repeat for all non-disabled regions.
 
-![pfSense GeoIP Country List](/assets/pfsense-geoip-country-permit.png)
+![pfSense GeoIP Country List](/assets/images/pfsense-geoip-country-permit.png)
 
 
 ### Alias Configuration
@@ -45,7 +45,7 @@ To easy management, I suggest creating an alias containing your allowed GeoIP re
 
 Complete this by navigating to Firewall > Aliases > Add. 
 
-![Add pfSense GeoIP Alias](/assets/pfsense-geoip-firewall-alias.png)
+![Add pfSense GeoIP Alias](/assets/images/pfsense-geoip-firewall-alias.png)
 
 The type is networks. For each network, enter the aliases for the pfBlocker regions and save. I am blocking all IPv6 anyway so I am only using the v4 rules. Like other alias fields in pfSense, aliases will pop up as suggestions as you begin typing. These build in aliases should all begin with “pfB_”.
 
@@ -55,7 +55,7 @@ In a future step, we will configure manual allowed networks/hosts. To manages th
 
 Now, to implement this firewall alias as a LAN rule. Navigate to Firewall > Rules > Lan (tab). Here I suggest first adding a rule for local traffic. Again, If your pfSense handles DNS or routing for your network, you will need some sort of rule here.
 
-![pfSense GeoIP Firewall Rules](/assets/pfsense-geoip-firewall-rules.png)
+![pfSense GeoIP Firewall Rules](/assets/images/pfsense-geoip-firewall-rules.png)
 
 In my case, I allow all from LAN_NET to LAN_NET. LAN_NET is an alias containing a subset of RFC1918 addresses I use. I have a broad rule here as my switch handles nearly all inter-VLAN routing and houses ACLs for segmentation. I recognize that further tightening here could provide a more secure environment. However, given my situation, I’ve chosen to tackle this another day.
 
@@ -71,7 +71,7 @@ Moving to the WAN side, we can lock down the open port for OpenVPN.
 
 Edit the existing rule for OpenVPN and set the source to an alias. As I only ever plan to connect from the US, I used the pfBlocker North America alias.
 
-![pfSense OpenVPN Firewall Rule](/assets/pfsense-geoip-openvpn-rule.png)
+![pfSense OpenVPN Firewall Rule](/assets/images/pfsense-geoip-openvpn-rule.png)
 
 ### Allowing Traffic
 
@@ -79,6 +79,6 @@ This implementation will result in desired traffic that is blocked. The first in
 
 I first had to allow discord.com to even load the site. With the site loaded, you can see the domains that are failing in the network tab of the web developer tools. This resulted in the following domains to the MANUAL_ALLOW alias:
 
-![pfSense GeoIP Permit Rule](/assets/pfsense-geoip-permit-rule.png)
+![pfSense GeoIP Permit Rule](/assets/images/pfsense-geoip-permit-rule.png)
 
 pfSense will automatically, periodically resolve these and domains and utilize the IP for the allow list.
