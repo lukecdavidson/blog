@@ -50,7 +50,6 @@ https://github.com/jekyll/jekyll-gist
 Costs money for WordPress. $5 a month on digital ocean. At this time, WordPress.com does offer a free plan, limited to 1GB storage, no plugins, limited themes. Unable to install plugins or themes. Additionally, you are shown ads.
 
 
-
 ## Migration Process
 
 ### Determining a Method for Migration
