@@ -1,4 +1,4 @@
-FROM ruby:2.7.4
+FROM docker.io/library/ruby:2.7.4
 WORKDIR /app
 ENV GEM_HOME="/usr/local/bundle"
 ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
