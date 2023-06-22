@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Migration to Jekyll
-date:   202l-06-20 20:00:00 -0800
+date:   2023-06-20 20:00:00 -0800
 categories: blogging jekyll
 ---
 A blog is a must-have for anyone wishing to continue their technical learning. With a blog, you have the opportunity to organize, formalize, and share your technical notes. The process of reviewing your findings and converting them to a coherent post can highlight gaps in your knowledge and lead to further research and a better understanding of the subject.
